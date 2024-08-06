@@ -1,0 +1,86 @@
+/* Add User Form  */
+form.add-user-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add User Form > Input Outer Area */
+form.add-user-form div.add-user-form-input-outer-area {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Add User Form > Input Area */
+form.add-user-form div.add-user-form-input-area {
+    margin-bottom: 15px;
+}
+
+/* Add User Form > Input Outer Area > Input Area */
+div.add-user-form-input-outer-area div.add-user-form-input-area {
+    margin-bottom: 0px;
+}
+
+/* Add User Form > Input Outer Area > Input Area > Input Box */
+div.add-user-form-input-outer-area div.add-user-form-input-area .add-user-form-input-outer-input-box {
+    width: 250px;
+}
+
+/* Add User Form > Input Area > Input Label */
+form.add-user-form div.add-user-form-input-area label.add-user-form-input-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Add User Form > Input Area > Input Box, Add User Form > Input Outer Area > Input Area > Input Box */
+form.add-user-form .add-user-form-input-box,
+form.add-user-form .add-user-form-input-outer-input-box
+{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Add User Form > Button */
+form.add-user-form button.add-user-form-btn {
+    display: block;
+    margin: 40px auto 0px auto;
+    height: auto;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(3, 192, 60, 0.8);
+    border: 1px solid rgba(3, 192, 60, 0.8);
+    border-radius: 5px;
+}
+
+/* Add User Form > Button (Hover Effect) */
+form.add-user-form button.add-user-form-btn:hover {
+    background-color: rgba(3, 192, 60, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add User Form > Button > Icons */
+form.add-user-form button.add-user-form-btn svg {
+    font-size: 18px;
+}
+
+/* Add User Form > Button > Second Icon  */
+form.add-user-form button.add-user-form-btn svg:last-child {
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+/* Add User Form > Input Area > Input Error */
+form.add-user-form div.add-user-form-input-area div.add-user-form-input-error {
+    color: red;
+    font-size: 0.875em;
+}
