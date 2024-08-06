@@ -1,0 +1,48 @@
+/* Profiles Page Main */
+main.profiles-page-main {
+    margin: 50px 0;
+}
+
+/* Profiles Page Main > Profiles Buttons Section */
+main.profiles-page-main section.profiles-buttons-section {
+    width: 100%;
+    height: auto;
+    margin: auto 0;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Profile Buttons Sections > Profile Page Button */
+section.profiles-buttons-section a.profiles-page-btn {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #bab8b8;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* Profile Button Section > Profile Page Button (Hover Effect) */
+section.profiles-buttons-section a.profiles-page-btn:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Button Section > Profile Page Button > Profile Page Button Icon */
+section.profiles-buttons-section a.profiles-page-btn span.profile-page-btn-icon {
+    font-size: 30px;
+}
+
+/* Profile Button Section > Profile Page Button (Last Child) > Profile Page Button Icon > Icon (Last Child) */
+section.profiles-buttons-section a.profiles-page-btn:last-child span.profile-page-btn-icon svg:last-child {
+    font-size: 18px;
+}
+
+/* Profile Button Section > Profile Page Button > Profile Page Button Text */
+section.profiles-buttons-section a.profiles-page-btn span.profile-page-btn-text {
+    font-size: 16px;
+}

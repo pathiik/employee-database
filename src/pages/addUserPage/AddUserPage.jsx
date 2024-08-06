@@ -3,6 +3,8 @@ import AddUserForm from '../../components/addUserForm/AddUserForm'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
+import './addUserPage.css';
+
 const AddUserPage = () => {
     return (
         <>

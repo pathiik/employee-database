@@ -8,7 +8,6 @@ import { faUser, faPlus } from "@fortawesome/free-solid-svg-icons";
 import countriesData from "./countriesData.json";
 import citiesData from "./citiesData.json";
 import "./addUserForm.css";
-import UserAddedPage from "../../pages/addUserPage/UserAddedPage";
 
 import { useNavigate } from "react-router-dom";
 
