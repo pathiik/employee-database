@@ -1,0 +1,60 @@
+/* Main Outer Container */
+div.clock-in-out-buttons {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clock In and Clock Out Buttons */
+button.clock-btns {
+    width: 110px;
+    height: 110px;
+    border: 1px solid #bab8b8;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* Clock In and Clock Out Buttons Hover Effect */
+button.clock-btns:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Clock In and Clock Out Button Contents */
+button.clock-btns span.clock-button-icons {
+    font-size: 30px;
+}
+
+/* Clock In Button Contents Icons */
+button.clock-in-btn span.clock-button-icons svg{
+    color: rgba(3, 192, 60, 0.8);
+}
+
+/* Clock In Button Hover Effect */
+button.clock-in-btn:hover {
+    background-color: rgba(3, 192, 60, 0.1);
+}
+
+/* Clock Out Button Contents Icons */
+button.clock-out-btn span.clock-button-icons svg{
+    color: rgba(210, 18, 47, 0.8);
+}
+
+/* Clock Out Button Hover Effect */
+button.clock-out-btn:hover {
+    background-color: rgba(210, 18, 47, 0.1);
+}
+
+/* Clock In and Clock Out Button Contents Second Icon */
+button.clock-btns span.clock-button-icons svg:last-child {
+    font-size: 18px;
+}
+
+/* Clock In and Clock Out Button Contents Text */
+button.clock-btns span.clock-button-text {
+    font-size: 18px;
+}

@@ -1,0 +1,121 @@
+/* Number Pad Section */
+section.number-pad-section {
+    margin: 0 auto;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+/* Number Pad Section > Number Input Area */
+section.number-pad-section div.number-input-area {
+    max-width: 400px;
+    border: 1px solid #bab8b8;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+/* Number Pad Section > Number Input Area > Input Box */
+section.number-pad-section div.number-input-area input.number-input-box {
+    width: 95%;
+    margin: 0px auto;
+    display: block;
+    height: 50px;
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: 2px;
+    border: none;
+}
+
+/* Number Pad Section > Number Input Area > Input Box (Focus Effect) */
+section.number-pad-section div.number-input-area input.number-input-box:focus {
+    outline: none;
+}
+
+/* Number Pad Section > Buttons Area */
+section.number-pad-section > div.number-pad-buttons-area {
+    display: flex;
+    gap: 0px 20px;
+    justify-content: center;
+    max-width: 400px;
+}
+
+/* Buttons Area > Number Buttons */
+div.number-pad-buttons-area div.number-pad-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(4, 60px);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Buttons Area > Number/Function Buttons > Number/Function Button */
+div.number-pad-buttons-area div.number-pad-buttons button.number-btn,
+div.number-pad-buttons-area div.number-pad-function-buttons button.function-btn {
+    width: 80px;
+    height: 60px;
+    background-color: #fff;
+    border: 1px solid #bab8b8;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/* Buttons Area > Number/Function Buttons > Number/Function Button (Hover Effect) */
+div.number-pad-buttons-area div.number-pad-buttons button.number-btn:hover,
+div.number-pad-buttons-area div.number-pad-function-buttons button.function-btn:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons Area > Function Buttons > Delete and Submit Button */
+div.number-pad-buttons-area div.number-pad-function-buttons button#number-pad-delete-btn,
+div.number-pad-buttons-area div.number-pad-function-buttons button#number-pad-submit-btn {
+    border: none;
+}
+
+/* Number Pad Section > Buttons Area > Function Buttons */
+section.number-pad-section div.number-pad-buttons-area div.number-pad-function-buttons {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 100px;
+    grid-template-rows: repeat(2, 60px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Buttons Area > Function Buttons > Function Button */
+div.number-pad-buttons-area div.number-pad-function-buttons button.function-btn {
+    width: 100px;
+    height: 60px;
+}
+
+/* Buttons Area > Function Buttons > Function Button (Last Child) */
+div.number-pad-buttons-area div.number-pad-function-buttons button.function-btn:last-child {
+    width: 100px;
+    height: 100%;
+}
+
+/* Function Buttons > Delete Button */
+div.number-pad-function-buttons button#number-pad-delete-btn {
+    background-color: rgba(210, 18, 47, 0.8);
+}
+
+/* Function Buttons > Delete Button (Hover Effect) */
+div.number-pad-function-buttons button#number-pad-delete-btn:hover {
+    background-color: rgba(210, 18, 47, 1);;
+}
+
+/* Function Buttons > Submit Button */
+div.number-pad-function-buttons button#number-pad-submit-btn {
+    background-color: rgba(3, 192, 60, 0.8);
+}
+
+/* Function Buttons > Submit Button (Hover Effect) */
+div.number-pad-function-buttons button#number-pad-submit-btn:hover {
+    background-color: rgba(3, 192, 60, 1);
+}

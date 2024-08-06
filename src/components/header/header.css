@@ -1,0 +1,50 @@
+/* Header */
+header.header-section {
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Header > Header Area */
+header.header-section div.header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header Area > Header Title */
+div.header-area h1.header-title {
+    letter-spacing: 1.5px;
+}
+
+/* Header Area > Header Nav > UL*/
+div.header-area nav.header-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+/* Header Area > Header Nav > UL > LI */
+nav.header-nav ul li {
+    list-style: none;
+}
+
+/* Header Nav > UL > LI > Nav Links */
+nav.header-nav ul li a.header-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* Header Nav > UL > LI > Nav Links (Hover Effect) */
+nav.header-nav ul li a.header-nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Header Nav > UL > LI > Nav Links (Hover Effect) > SVG */
+nav.header-nav ul li a.header-nav-link:hover svg {
+    transform: scale(1.08);
+}

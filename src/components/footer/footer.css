@@ -1,0 +1,10 @@
+.footer-in-title {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.footer-in-info {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+}

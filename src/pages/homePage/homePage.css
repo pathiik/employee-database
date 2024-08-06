@@ -1,0 +1,24 @@
+/* Home Page Main */
+main.homepage-main {
+    display: flex;
+    margin: 50px 0;
+}
+
+/* Home Page Main > Aside */
+main.homepage-main aside.homepage-aside {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto auto 0;
+}
+
+/* Home Page Main > Left Aside */
+main.homepage-main aside.homepage-left-aside {
+    margin: auto auto auto 0;
+}
+
+/* Home Page Main > Right Aside */
+main.homepage-main aside.homepage-right-aside {
+    margin: auto 0 auto auto;
+}
