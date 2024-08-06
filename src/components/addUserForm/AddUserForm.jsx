@@ -8,8 +8,14 @@ import { faUser, faPlus } from "@fortawesome/free-solid-svg-icons";
 import countriesData from "./countriesData.json";
 import citiesData from "./citiesData.json";
 import "./addUserForm.css";
+import UserAddedPage from "../../pages/addUserPage/UserAddedPage";
+
+import { useNavigate } from "react-router-dom";
 
 const AddUserForm = () => {
+
+    const navigate = useNavigate();
+
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
 
@@ -21,7 +27,7 @@ const AddUserForm = () => {
     const ValidationSchema = Yup.object({
         employeeID: Yup.number().typeError("Employee ID must be a number").required("Employee ID is required"),
         name: Yup.string().required("Name is required"),
-        contactNumber: Yup.number().typeError("Contact Number must be a number").required("Contact Number is required"),
+        contactNumber: Yup.number().typeError("Contact Number must be a number"),
         age: Yup.number().typeError("Age must be a number").min(16, "Age must be at least 16").required("Age is required"),
         email: Yup.string().email("Invalid email"),
         city: Yup.string().required("Currently residing city is required"),
@@ -44,6 +50,7 @@ const AddUserForm = () => {
             onSubmit={(values, { resetForm }) => {
                 console.log(values);
                 resetForm();
+                navigate('/user-added')
             }}
         >
             {() => (
