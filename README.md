@@ -24,6 +24,8 @@ This is a simple employee database application that has employee clocking in and
 - Firebase
 - react-router-dom
 - FontAwesome
+- Formik
+- Yup
 
 ### Clone the repository
 ```bash
