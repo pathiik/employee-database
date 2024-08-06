@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup"; // Form validation library
 
+import { auth, db } from "../../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,11 +16,10 @@ import "./addUserForm.css";
 import { useNavigate } from "react-router-dom";
 
 const AddUserForm = () => {
-
-    const navigate = useNavigate();
-
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setCountries(countriesData.map((country => country.name)));
@@ -28,10 +31,49 @@ const AddUserForm = () => {
         name: Yup.string().required("Name is required"),
         contactNumber: Yup.number().typeError("Contact Number must be a number"),
         age: Yup.number().typeError("Age must be a number").min(16, "Age must be at least 16").required("Age is required"),
-        email: Yup.string().email("Invalid email"),
         city: Yup.string().required("Currently residing city is required"),
         homeCountry: Yup.string().required("Home country is required"),
-    })
+        email: Yup.string().email("Invalid email").required("Email is required"),
+        password: Yup.string().required("Validation code is required")
+    });
+
+    const handleSubmit = async (values, { resetForm }) => {
+        const { email, password, employeeID, ...userData } = values;
+
+        // TODO
+        // No repetition of phone numbers, employeeID
+    
+
+        
+
+        // Check if the validation code is correct
+        if (password !== import.meta.env.VITE_USER_ADD_VALIDATION_CODE) {
+            alert("Invalid validation code. Please enter the correct code.");
+            return;
+        }
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            await setDoc(doc(db, "users", user.uid), {
+                ...userData,
+                email: user.email,
+                uid: user.uid,
+                employeeID: employeeID
+            });
+
+            await setDoc(doc(db, "IDtoEmail", employeeID), {
+                email: user.email
+            });
+
+            console.log("User added successfully");
+            resetForm();
+            navigate('/user-added');
+        } catch (error) {
+            console.error("Error adding user: ", error);
+        }
+    };
 
     return (
         <Formik
@@ -40,17 +82,13 @@ const AddUserForm = () => {
                 name: "",
                 contactNumber: "",
                 age: "",
-                position: "",
-                email: "",
                 city: "",
                 homeCountry: "",
+                email: "",
+                password: ""
             }}
             validationSchema={ValidationSchema}
-            onSubmit={(values, { resetForm }) => {
-                console.log(values);
-                resetForm();
-                navigate('/user-added')
-            }}
+            onSubmit={handleSubmit}
         >
             {() => (
                 <Form action="POST" className="add-user-form">
@@ -93,14 +131,6 @@ const AddUserForm = () => {
                             </Field>
                             <ErrorMessage name="city" component="div" className="add-user-form-input-error" />
                         </div>
-                    </div>
-
-                    <div className="add-user-form-input-outer-area">
-                        <div className="add-user-form-input-area">
-                            <label className="add-user-form-input-label">Email</label>
-                            <Field className="add-user-form-input-outer-input-box" type="email" name="email" />
-                            <ErrorMessage name="email" component="div" className="add-user-form-input-error" />
-                        </div>
 
                         <div className="add-user-form-input-area">
                             <label className="add-user-form-input-label">Home Country</label>
@@ -114,12 +144,26 @@ const AddUserForm = () => {
                         </div>
                     </div>
 
+                    <div className="add-user-form-input-outer-area">
+                        <div className="add-user-form-input-area">
+                            <label className="add-user-form-input-label">Email</label>
+                            <Field className="add-user-form-input-outer-input-box" type="email" name="email" />
+                            <ErrorMessage name="email" component="div" className="add-user-form-input-error" />
+                        </div>
+
+                        <div className="add-user-form-input-area">
+                            <label className="add-user-form-input-label">Validation Code</label>
+                            <Field className="add-user-form-input-outer-input-box" type="password" name="password" />
+                            <ErrorMessage name="password" component="div" className="add-user-form-input-error" />
+                        </div>
+                    </div>
+
                     <button className="add-user-form-btn" type="submit"><FontAwesomeIcon icon={faUser} /> <FontAwesomeIcon icon={faPlus} /> Add User</button>
 
                 </Form>
             )}
         </Formik>
-    )
+    );
 }
 
 export default AddUserForm;
