@@ -15,6 +15,9 @@ import "./addUserForm.css";
 
 import { useNavigate } from "react-router-dom";
 
+
+// TODO: Show popup of loading while the user is being added and only then redirect to user-added page
+
 // Importing Firestore functions
 import { getDocs, query, where, collection } from "firebase/firestore";
 

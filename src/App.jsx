@@ -5,6 +5,7 @@ import Error404Page from './pages/error404Page/Error404Page';
 import AddUserPage from './pages/addUserPage/AddUserPage';
 import UserAddedPage from './pages/addUserPage/UserAddedPage';
 import ProfilesPage from './pages/profiles/ProfilesPage';
+import AllUsersPage from './pages/allUsersPage/AllUsersPage';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/user-added',
     element: <UserAddedPage />,
+  },
+  {
+    path: '/all-users',
+    element: <AllUsersPage />,
   }
 ]);
 

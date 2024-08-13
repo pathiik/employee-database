@@ -1,0 +1,72 @@
+div.user-data-tab {
+    padding: 15px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 1000px;
+}
+
+div.user-data-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.user-data-info-left .user-data-info-icon {
+    font-size: 2rem;
+}
+
+div.user-data-info-mid-id {
+    font-size: 1.8rem;
+}
+
+div.user-data-info-mid-details {
+    overflow: hidden;
+}
+
+div.user-data-info-mid-details p.faded-text {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+div.user-data-info-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+div.user-data-info-mid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.user-data-info-mid-name {
+    width: 200px;
+}
+
+div.user-data-info-mid-email {
+    width: 300px;
+}
+
+div.user-data-info-mid-contact {
+    width: 150px;
+}
+
+div.user-data-info-right {
+    border-left: 1px solid #ddd;
+    font-size: 2rem;
+    padding-right: 5px;
+    padding-left: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+div.user-data-info-right:hover {
+    padding-right: 0px;
+    padding-left: 20px;
+    cursor: pointer;
+    color: blue;
+}
