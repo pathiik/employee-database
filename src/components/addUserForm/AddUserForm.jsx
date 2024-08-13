@@ -15,6 +15,9 @@ import "./addUserForm.css";
 
 import { useNavigate } from "react-router-dom";
 
+// Importing Firestore functions
+import { getDocs, query, where, collection } from "firebase/firestore";
+
 const AddUserForm = () => {
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -38,31 +41,53 @@ const AddUserForm = () => {
     });
 
     const handleSubmit = async (values, { resetForm }) => {
-        const { email, password, employeeID, ...userData } = values;
+        const { email, password, employeeID, contactNumber, ...userData } = values;
 
-        // TODO
-        // No repetition of phone numbers, employeeID
-    
-
-        
-
-        // Check if the validation code is correct
+        // Checking if the validation code is correct
         if (password !== import.meta.env.VITE_USER_ADD_VALIDATION_CODE) {
             alert("Invalid validation code. Please enter the correct code.");
             return;
         }
 
         try {
+            // Checking for existing user with the same email
+            const emailQuery = query(collection(db, "users"), where("email", "==", email));
+            const emailSnapshot = await getDocs(emailQuery);
+            if (!emailSnapshot.empty) {
+                alert("Email is already in use.");
+                return;
+            }
+
+            // Checking for existing user with the same employeeID
+            const idQuery = query(collection(db, "users"), where("employeeID", "==", employeeID));
+            const idSnapshot = await getDocs(idQuery);
+            if (!idSnapshot.empty) {
+                alert("Employee ID is already in use.");
+                return;
+            }
+
+            // Checking for existing user with the same contact number
+            const contactQuery = query(collection(db, "users"), where("contactNumber", "==", contactNumber));
+            const contactSnapshot = await getDocs(contactQuery);
+            if (!contactSnapshot.empty) {
+                alert("Contact number is already in use.");
+                return;
+            }
+
+            // Creating user in Firebase Authentication
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
+            // Adding user data to Firestore
             await setDoc(doc(db, "users", user.uid), {
                 ...userData,
                 email: user.email,
                 uid: user.uid,
-                employeeID: employeeID
+                employeeID: employeeID,
+                contactNumber: contactNumber
             });
 
+            // Mapping employee ID to email
             await setDoc(doc(db, "IDtoEmail", employeeID), {
                 email: user.email
             });
@@ -74,6 +99,7 @@ const AddUserForm = () => {
             console.error("Error adding user: ", error);
         }
     };
+
 
     return (
         <Formik
