@@ -7,27 +7,47 @@ import UserAddedPage from './pages/addUserPage/UserAddedPage';
 import ProfilesPage from './pages/profiles/ProfilesPage';
 import AllUsersPage from './pages/allUsersPage/AllUsersPage';
 
+
+// Update the title of the page
+const updatePageTitle = (title) => {
+  return () => {
+    document.title = title;
+    return null;
+  }
+}
+
+// Title update for the error page
+function ErrorPage() {
+  document.title = 'Page Not Found';
+  return <Error404Page />;
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />,
-    errorElement: <Error404Page />,
+    loader: updatePageTitle('Employee Database'),
+    errorElement: <ErrorPage />,
   },
   {
     path: '/profiles',
     element: <ProfilesPage />,
+    loader: updatePageTitle('Profiles - Employee Database'),
   },
   {
     path: '/add-user',
     element: <AddUserPage />,
+    loader: updatePageTitle('Add User - Employee Database'),
   },
   {
     path: '/user-added',
     element: <UserAddedPage />,
+    loader: updatePageTitle('Add User - Employee Database'),
   },
   {
     path: '/all-users',
     element: <AllUsersPage />,
+    loader: updatePageTitle('All Users - Employee Database'),
   }
 ]);
 
