@@ -15,6 +15,8 @@ const UserDetails = () => {
     const [isEditing, setIsEditing] = useState(false);
 
     // State for editable fields
+
+    // Original fields needs to be updated only after save and not on change (TO BE IMPLEMENTED)
     const [editName, setEditName] = useState('');
     const [editContactNumber, setEditContactNumber] = useState('');
     const [editAge, setEditAge] = useState('');
