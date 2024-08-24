@@ -6,6 +6,7 @@ import AddUserPage from './pages/addUserPage/AddUserPage';
 import UserAddedPage from './pages/addUserPage/UserAddedPage';
 import ProfilesPage from './pages/profiles/ProfilesPage';
 import AllUsersPage from './pages/allUsersPage/AllUsersPage';
+import UserDetailsPage from './pages/userDetailsPage/UserDetailsPage';
 
 
 // Update the title of the page
@@ -45,9 +46,14 @@ const router = createBrowserRouter([
     loader: updatePageTitle('Add User - Employee Database'),
   },
   {
-    path: '/all-users',
+    path: '/users',
     element: <AllUsersPage />,
     loader: updatePageTitle('All Users - Employee Database'),
+  },
+  {
+    path: '/user/:employeeID',
+    element: <UserDetailsPage />,
+    loader: updatePageTitle('User Details - Employee Database'),
   }
 ]);
 

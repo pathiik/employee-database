@@ -1,0 +1,98 @@
+.user-details-all {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.user-details-in {
+    flex: 1;
+}
+
+.user-details-in > div {
+    margin: 5px 0;
+}
+
+.user-details-all > div span {
+    font-weight: bold;
+}
+
+.user-details-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.user-details-controls__edit,
+.user-details-controls__delete {
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.user-details-controls__edit {
+    background-color: #4caf50;
+    color: white;
+}
+
+.user-details-controls__delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 500px;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.modal-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}

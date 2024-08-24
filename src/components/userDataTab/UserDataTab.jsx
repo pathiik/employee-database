@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "./userDataTab.css";
 
 const UserDataTab = ({ name, employeeID, email, contactNumber }) => {
@@ -29,9 +30,11 @@ const UserDataTab = ({ name, employeeID, email, contactNumber }) => {
                     </div>
                 </div>
 
-                {/* TODO: Link to user profile page */}
                 <div className="user-data-info-right" title={`User ${employeeID}`}>
-                    <FontAwesomeIcon icon={faAngleRight} />
+                    {/* Links to specific user's page */}
+                    <Link to={`/user/${employeeID}`} >
+                        <FontAwesomeIcon icon={faAngleRight} />
+                    </Link>
                 </div>
             </div>
 

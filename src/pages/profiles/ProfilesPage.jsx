@@ -15,7 +15,7 @@ const ProfilesPage = () => {
             <Header />
             <main className="profiles-page-main">
                 <section className="profiles-buttons-section">
-                    <Link className="profiles-page-btn" to="/all-users">
+                    <Link className="profiles-page-btn" to="/users">
                         <span className="profile-page-btn-icon"><FontAwesomeIcon icon={faUsers} /></span>
                         <span className="profile-page-btn-text">See All Users</span>
                     </Link>

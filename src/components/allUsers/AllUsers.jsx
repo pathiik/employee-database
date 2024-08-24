@@ -5,7 +5,7 @@ import { db } from "../../firebase/firebase";
 import UserDataTab from "../userDataTab/UserDataTab";
 import './allUsers.css';
 
-const AllUsersPage = () => {
+const AllUsers = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -45,6 +45,7 @@ const AllUsersPage = () => {
             {users.map(user => (
                 <UserDataTab
                     key={user.id}
+                    id={user.id}
                     name={user.name}
                     employeeID={user.employeeID}
                     email={user.email}
@@ -55,4 +56,4 @@ const AllUsersPage = () => {
     );
 }
 
-export default AllUsersPage;
+export default AllUsers;
