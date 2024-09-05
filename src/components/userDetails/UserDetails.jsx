@@ -23,7 +23,6 @@ const UserDetails = () => {
     const [userEmail, setUserEmail] = useState('');
 
     // State for editable fields
-    // Original fields needs to be updated only after save and not on change (TO BE IMPLEMENTED)
     const [editName, setEditName] = useState('');
     const [editContactNumber, setEditContactNumber] = useState('');
     const [editAge, setEditAge] = useState('');
@@ -115,8 +114,6 @@ const UserDetails = () => {
         }
     };
 
-    // Deleteing the user -> Currently not working
-    // Shows deleted -> Redirects to all users page -> But user still exists
     const handleDelete = async () => {
         if (!user) return;
         const userCode = prompt("Enter the validation code to delete the user:");
