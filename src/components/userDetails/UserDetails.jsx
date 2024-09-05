@@ -14,8 +14,15 @@ const UserDetails = () => {
     const [error, setError] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
 
-    // State for editable fields
+    // State for user details
+    const [userName, setUserName] = useState('');
+    const [userContactNumber, setUserContactNumber] = useState('');
+    const [userAge, setUserAge] = useState('');
+    const [userCity, setUserCity] = useState('');
+    const [userHomeCountry, setUserHomeCountry] = useState('');
+    const [userEmail, setUserEmail] = useState('');
 
+    // State for editable fields
     // Original fields needs to be updated only after save and not on change (TO BE IMPLEMENTED)
     const [editName, setEditName] = useState('');
     const [editContactNumber, setEditContactNumber] = useState('');
@@ -38,6 +45,14 @@ const UserDetails = () => {
                     const userData = querySnapshot.docs[0].data();
                     console.log("User data found:", userData);
                     setUser(userData);
+
+                    setUserName(userData.name);
+                    setUserContactNumber(userData.contactNumber);
+                    setUserAge(userData.age);
+                    setUserCity(userData.city);
+                    setUserHomeCountry(userData.homeCountry);
+                    setUserEmail(userData.email);
+
                     setEditName(userData.name);
                     setEditContactNumber(userData.contactNumber);
                     setEditAge(userData.age);
@@ -82,6 +97,14 @@ const UserDetails = () => {
                     homeCountry: editHomeCountry,
                     email: editEmail,
                 });
+
+                setUserName(editName);
+                setUserContactNumber(editContactNumber);
+                setUserAge(editAge);
+                setUserCity(editCity);
+                setUserHomeCountry(editHomeCountry);
+                setUserEmail(editEmail);
+
                 setIsEditing(false);
             } else {
                 setError("Document not found. Please check the employee ID.");
@@ -104,11 +127,18 @@ const UserDetails = () => {
 
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
-                const userDoc = doc(db, "users", employeeID);
-                await deleteDoc(userDoc);
-                alert("User deleted successfully.");
-                setUser(null);
-                navigate("/users");
+                const querySnapshot = await getDocs(collection(db, "users"));
+                const docToDelete = querySnapshot.docs.find(doc => doc.data().employeeID === employeeID);
+
+                if (docToDelete) {
+                    const userDoc = doc(db, "users", docToDelete.id);
+                    await deleteDoc(userDoc);
+                    alert("User deleted successfully.");
+                    setUser(null);
+                    navigate("/users");
+                } else {
+                    setError("Document not found. Please check the employee ID.");
+                }
             } catch (error) {
                 setError("Failed to delete user. Please try again later.");
                 console.error("Error deleting document: ", error);
@@ -132,12 +162,12 @@ const UserDetails = () => {
         <>
             <div className="user-details-all">
                 <div className="user-details-in">
-                    <div className="user-details__name"><span>Name:</span> {editName}</div>
-                    <div className="user-details__contactNumber"><span>Contact Number:</span> {editContactNumber}</div>
-                    <div className="user-details__age"><span>Age:</span> {editAge}</div>
-                    <div className="user-details__city"><span>City:</span> {editCity}</div>
-                    <div className="user-details__homeCountry"><span>Home Country:</span> {editHomeCountry}</div>
-                    <div className="user-details__email"><span>Email:</span> {editEmail}</div>
+                    <div className="user-details__name"><span>Name:</span> {userName}</div>
+                    <div className="user-details__contactNumber"><span>Contact Number:</span> {userContactNumber}</div>
+                    <div className="user-details__age"><span>Age:</span> {userAge}</div>
+                    <div className="user-details__city"><span>City:</span> {userCity}</div>
+                    <div className="user-details__homeCountry"><span>Home Country:</span> {userHomeCountry}</div>
+                    <div className="user-details__email"><span>Email:</span> {userEmail}</div>
                 </div>
                 <div className="user-details-controls">
                     <button className="user-details-controls__edit" onClick={() => setIsEditing(true)}>Edit</button>
