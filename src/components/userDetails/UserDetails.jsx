@@ -124,12 +124,18 @@ const UserDetails = () => {
 
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
+                // TODO: Add code to delete user from Firebase Authentication
+
                 const querySnapshot = await getDocs(collection(db, "users"));
+                const newQuerySnapshot = await getDocs(collection(db, "IDtoEmail"));
                 const docToDelete = querySnapshot.docs.find(doc => doc.data().employeeID === employeeID);
+                const emailDocToDelete = newQuerySnapshot.docs.find(doc => doc.data().email === user.email);
 
                 if (docToDelete) {
                     const userDoc = doc(db, "users", docToDelete.id);
+                    const emailDoc = doc(db, "IDtoEmail", emailDocToDelete.id);
                     await deleteDoc(userDoc);
+                    await deleteDoc(emailDoc);
                     alert("User deleted successfully.");
                     setUser(null);
                     navigate("/users");
